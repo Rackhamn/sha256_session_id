@@ -66,7 +66,7 @@ int main() {
 	char token_data[64] = { 0 };
 
 	// session id = sha256(random_bytes + timestamp + user_id)
-	
+
 	// get input data
 	user_id = 123;
 	read_random_bytes(rnd_buf, 8);
@@ -90,7 +90,7 @@ int main() {
 	// compute hash
 	size_t token_len = sizeof(user_id) + (sizeof(rnd_buf[0]) * 8) + sizeof(timestamp);
 	sha256_update(&ctx, (const uint8_t *)token_data, token_len);
-        sha256_final(&ctx, hash);
+	sha256_final(&ctx, hash);
 
 	// display hash
 	printf("sha256:\n");
